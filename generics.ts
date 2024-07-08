@@ -61,3 +61,27 @@ function firstOrNull<T>(array: T[]): T | null {
 
 console.log(firstOrNull<string>(["Rod", "Jane", "Fred"]));
 console.log(firstOrNull<number>([1, 2, 3]));
+
+// Cerating generic intefaces 
+
+interface Contact {
+    name: string; 
+    email: string;
+}
+
+interface Form<T> {
+    errors: {
+      [K in keyof T]?: string;
+    };
+    values: T;
+  }
+
+const ContactForm: Form<Contact> = {
+    errors: {
+        email: "This must be a valid email address"
+    },
+    values: {
+        name: "Bob",
+        email: "bob@someemail.com"
+    }
+}

@@ -40,3 +40,12 @@ function firstOrNull(array) {
 }
 console.log(firstOrNull(["Rod", "Jane", "Fred"]));
 console.log(firstOrNull([1, 2, 3]));
+var ContactForm = {
+    errors: {
+        email: "This must be a valid email address"
+    },
+    values: {
+        name: "Bob",
+        email: "bob@someemail.com"
+    }
+};
