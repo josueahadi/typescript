@@ -53,3 +53,11 @@ const records: ResultRecord = {
         score: 60,
     }
 }
+
+// creating generic functions 
+function firstOrNull<T>(array: T[]): T | null {
+    return array.length === 0? null : array[0];
+}
+
+console.log(firstOrNull<string>(["Rod", "Jane", "Fred"]));
+console.log(firstOrNull<number>([1, 2, 3]));
