@@ -1,4 +1,13 @@
 import { Invoice } from './classes/Invoice.js';
+import { Payment } from './classes/Payment.js';
+let docOne;
+let docTwo;
+docOne = new Invoice('Specter', 'litigation', 5000);
+docTwo = new Payment('Litt', 'partner compensation', 10000);
+let docs = [];
+docs.push(docOne);
+docs.push(docTwo);
+console.log(docs);
 const invoice1 = new Invoice('McKenon', 'consultancy', 10000);
 const invoice2 = new Invoice('Pearson', 'books', 200);
 //console.log(invoice1, invoice2); 
