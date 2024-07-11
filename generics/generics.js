@@ -58,3 +58,7 @@ var KeyValuePair = /** @class */ (function () {
     return KeyValuePair;
 }());
 var pair = new KeyValuePair('1', 'a');
+function echo(value) {
+    return value;
+}
+echo({ name: 'a' });

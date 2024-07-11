@@ -92,3 +92,14 @@ class KeyValuePair<K, V> {
 }
 
 const pair = new KeyValuePair<string, string>('1', 'a')
+
+// Generic Constraints 
+interface Person {
+    name: string;
+}
+
+function echo<T extends Person>(value: T) {
+    return value; 
+}
+
+echo({name: 'a'})
