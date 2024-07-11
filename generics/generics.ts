@@ -113,3 +113,41 @@ function echo<T extends Person>(value: T) {
 
 // echo({name: 'a'})
 echo(new Customer('a'))
+
+// Extending Generic Classes (Generic Classes and Inheritance)
+
+interface Product {
+    name: string;
+    price: number;
+}
+
+class Store<T> {
+    protected _objects: T[] = [];
+    add(obj: T): void {
+        this._objects.push(obj);
+    }
+}
+
+let store = new Store<Product>();
+
+    // 1. passing on the generic type parameter
+class CompressibleStore<T> extends Store<T> {
+    compress() {}
+}
+
+let newStore = new CompressibleStore<Product>();
+newStore.compress();
+
+    // 2. restricting the generic type parameter 
+class searchableStore<T extends {name: string}> extends Store<T> {
+    find(name: string): T | undefined {
+        return this._objects.find(obj => obj.name === name);
+    }
+}
+
+    // 3. fix the generic type parameter
+class ProductStore extends Store<Product> {
+    filterByCategory(category: string): Product[] {
+        return [];
+    }
+}

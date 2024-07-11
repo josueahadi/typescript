@@ -95,3 +95,46 @@ function echo(value) {
 }
 // echo({name: 'a'})
 echo(new Customer('a'));
+var Store = /** @class */ (function () {
+    function Store() {
+        this._objects = [];
+    }
+    Store.prototype.add = function (obj) {
+        this._objects.push(obj);
+    };
+    return Store;
+}());
+var store = new Store();
+// 1. passing on the generic type parameter
+var CompressibleStore = /** @class */ (function (_super) {
+    __extends(CompressibleStore, _super);
+    function CompressibleStore() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    CompressibleStore.prototype.compress = function () { };
+    return CompressibleStore;
+}(Store));
+var newStore = new CompressibleStore();
+newStore.compress();
+// 2. restricting the generic type parameter 
+var searchableStore = /** @class */ (function (_super) {
+    __extends(searchableStore, _super);
+    function searchableStore() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    searchableStore.prototype.find = function (name) {
+        return this._objects.find(function (obj) { return obj.name === name; });
+    };
+    return searchableStore;
+}(Store));
+// 3. fix the generic type parameter
+var ProductStore = /** @class */ (function (_super) {
+    __extends(ProductStore, _super);
+    function ProductStore() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    ProductStore.prototype.filterByCategory = function (category) {
+        return [];
+    };
+    return ProductStore;
+}(Store));
