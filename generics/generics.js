@@ -102,6 +102,8 @@ var Store = /** @class */ (function () {
     Store.prototype.add = function (obj) {
         this._objects.push(obj);
     };
+    // T is Product 
+    // keyof T => 'name' | 'price'
     Store.prototype.find = function (property, value) {
         return this._objects.find(function (obj) { return obj[property] == value; });
     };
