@@ -2,30 +2,30 @@ import {Invoice} from './classes/Invoice.js'
 import {Payment} from './classes/Payment.js'
 import { HasFormatter } from './interfaces/HasFormatter.js'; 
 
-let docOne: HasFormatter;
-let docTwo: HasFormatter; 
+// let docOne: HasFormatter;
+// let docTwo: HasFormatter; 
 
-docOne = new Invoice('Specter', 'litigation', 5000);
-docTwo = new Payment('Litt', 'partner compensation', 10000)
+// docOne = new Invoice('Specter', 'litigation', 5000);
+// docTwo = new Payment('Litt', 'partner compensation', 10000)
 
-let docs: HasFormatter[] = [];
-docs.push(docOne); 
-docs.push(docTwo);
+// let docs: HasFormatter[] = [];
+// docs.push(docOne); 
+// docs.push(docTwo);
 
-console.log(docs);
+// console.log(docs);
 
-const invoice1 = new Invoice('McKenon', 'consultancy', 10000);
-const invoice2 = new Invoice('Pearson', 'books', 200);
-//console.log(invoice1, invoice2); 
+// const invoice1 = new Invoice('McKenon', 'consultancy', 10000);
+// const invoice2 = new Invoice('Pearson', 'books', 200);
+// //console.log(invoice1, invoice2); 
 
-let invoices: Invoice[] = [];
-invoices.push(invoice1);
-invoices.push(invoice2);
-//console.log(invoices);
+// let invoices: Invoice[] = [];
+// invoices.push(invoice1);
+// invoices.push(invoice2);
+// //console.log(invoices);
 
-invoices.forEach(invoice => {
-    console.log(invoice.client, invoice.amount, invoice.format())
-})
+// invoices.forEach(invoice => {
+//     console.log(invoice.client, invoice.amount, invoice.format())
+// })
 
 
 //const form = document.querySelector('form')!;
@@ -40,12 +40,13 @@ const amount = document.querySelector('#amount') as HTMLInputElement;
 
 form.addEventListener('submit', (e: Event) => {
     e.preventDefault();
+    let doc: HasFormatter;
+    if (type.value === 'invoice') {
+        doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber); 
+    } else {
+        doc = new Payment(tofrom.value, details.value, amount.valueAsNumber)
+    }
 
-    console.log(
-        type.value,
-        tofrom.value,
-        details.value,
-        amount.valueAsNumber
-    )
+    console.log(doc)
 })
 
