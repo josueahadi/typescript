@@ -54,7 +54,7 @@ const records: ResultRecord = {
     }
 }
 
-// creating generic functions 
+// Generic Functions
 function firstOrNull<T>(array: T[]): T | null {
     return array.length === 0? null : array[0];
 }
@@ -62,7 +62,7 @@ function firstOrNull<T>(array: T[]): T | null {
 console.log(firstOrNull<string>(["Rod", "Jane", "Fred"]));
 console.log(firstOrNull<number>([1, 2, 3]));
 
-// Cerating generic intefaces 
+// Generic Interfaces
 
 interface Contact {
     name: string; 
@@ -85,3 +85,10 @@ const ContactForm: Form<Contact> = {
         email: "bob@someemail.com"
     }
 }
+
+// Generic Classes
+class KeyValuePair<K, V> {
+    constructor(public key: K, public value: V) {}
+}
+
+const pair = new KeyValuePair<string, string>('1', 'a')

@@ -34,7 +34,7 @@ var records = {
         score: 60,
     }
 };
-// creating generic functions 
+// Generic Functions
 function firstOrNull(array) {
     return array.length === 0 ? null : array[0];
 }
@@ -49,3 +49,12 @@ var ContactForm = {
         email: "bob@someemail.com"
     }
 };
+// Generic Classes
+var KeyValuePair = /** @class */ (function () {
+    function KeyValuePair(key, value) {
+        this.key = key;
+        this.value = value;
+    }
+    return KeyValuePair;
+}());
+var pair = new KeyValuePair('1', 'a');
