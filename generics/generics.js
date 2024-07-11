@@ -102,9 +102,16 @@ var Store = /** @class */ (function () {
     Store.prototype.add = function (obj) {
         this._objects.push(obj);
     };
+    Store.prototype.find = function (property, value) {
+        return this._objects.find(function (obj) { return obj[property] == value; });
+    };
     return Store;
 }());
 var store = new Store();
+store.add({ name: 'a', price: 1 });
+store.find('name', 'a');
+store.find('price', 1);
+store.find('nonExistingProperty', 1);
 // 1. passing on the generic type parameter
 var CompressibleStore = /** @class */ (function (_super) {
     __extends(CompressibleStore, _super);
