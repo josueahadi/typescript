@@ -1,23 +1,23 @@
-
 // const setRange = (range: number): boolean => {
 //     const x = range[0];
 //     const y = range[1];
 
-//     return [1,2,4]
+//     return {x, y}
 //   };
   
 //   setRange([true, "10"]);
 
 
-type myObject = {
-    [key: string]: string | boolean;
+type RangeXY = {
+    x: boolean;
+    y: string ;
 }
 
-const setRange = (range: (boolean | string)[]): {}=> {
+const setRange = (range: [boolean, string]): RangeXY=> {
     const x = range[0];
     const y = range[1];
 
     return {x,y}
-  };
-  
-  setRange([true, "10"]);
+};
+
+setRange([true, "10"]);
